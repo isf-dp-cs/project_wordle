@@ -1,10 +1,8 @@
 import random
-import sys
 from list_of_words import five_letter_words
 
 # Get a random word from the list
 secret_word = random.choice(five_letter_words)
-
 
 # ANSI escape codes for colors
 green_bg = "\033[42m"
@@ -17,13 +15,13 @@ found = False
 attempts = 0
 max_attempts = 6
 
-print("Enter a 5-letter word")
+print("Welcome to Wordle! \n")
 
 while attempts < max_attempts and not found:
-    input_word = input()
+    input_word = input("-- Enter a 5 letter word: ")
     
     if input_word == secret_word:
-        print("Well done! You guessed the word!")
+        print("\nWell done! You guessed the word!")
         found = True
     else:
         output = ""
@@ -41,7 +39,8 @@ while attempts < max_attempts and not found:
             output = output + formatted_letter
         
         print(output)
+        print()
         attempts += 1
 
 if not found:
-    print("Sorry, you ran out of attempts. The word was: " + secret_word)
+    print(f"Sorry, you ran out of attempts. The word was: {secret_word}")
