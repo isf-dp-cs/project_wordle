@@ -1,2 +1,3 @@
-# lab_typing_game
-a simple typing game
+# project_wordle
+
+A simple word game based of of [NYT Wordle](https://www.nytimes.com/games/wordle/index.html).
