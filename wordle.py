@@ -2,7 +2,7 @@ import random
 from list_of_words import five_letter_words
 
 # Get a random word from the list
-secret_word = random.choice(five_letter_words)
+solution_word = random.choice(five_letter_words)
 
 # ANSI escape codes for colors
 green_bg = "\033[42m"
@@ -20,7 +20,7 @@ print("Welcome to Wordle! \n")
 while attempts < max_attempts and not found:
     input_word = input("-- Enter a 5 letter word: ")
     
-    if input_word == secret_word:
+    if input_word == solution_word:
         print("\nWell done! You guessed the word!")
         found = True
     else:
@@ -29,11 +29,11 @@ while attempts < max_attempts and not found:
             guess_letter = input_word[j]
             formatted_letter = grey_bg + guess_letter + reset
 
-            if secret_word[j] == guess_letter:
+            if solution_word[j] == guess_letter:
                 formatted_letter = green_bg + guess_letter + reset
             else:
-                for h in range(len(secret_word)):
-                    if secret_word[h] == guess_letter:
+                for h in range(len(solution_word)):
+                    if solution_word[h] == guess_letter:
                         formatted_letter = yellow_bg + guess_letter + reset
                         break
             output = output + formatted_letter
@@ -43,4 +43,4 @@ while attempts < max_attempts and not found:
         attempts += 1
 
 if not found:
-    print(f"Sorry, you ran out of attempts. The word was: {secret_word}")
+    print(f"Sorry, you ran out of attempts. The word was: {solution_word}")
