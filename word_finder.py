@@ -1,24 +1,25 @@
-# python word_finder.py good_words bad_words
-
 from list_of_words import five_letter_words
 import sys 
 
 def get_possible_words(good_letters, bad_letters, word_list): 
-    # finish this function
+    possible_words = []
+    for word in word_list: 
+ 
+        if set(good_letters).issubset(set(word)):
+            count_bad = 0
+            
+            for letter in bad_letters: 
+                if letter in word:    
+                    count_bad += 1
 
-    return
+            if count_bad == 0:
+                possible_words.append(word) 
+
+    return possible_words
 
 
 if __name__ == "__main__":
-    good_letters = ""
-    bad_letters = ""
-
-    if len(sys.argv) == 3:
-        good_letters = sys.argv[1]
-        bad_letters = sys.argv[2]
-
-    possible_words = get_possible_words(good_letters, bad_letters, five_letter_words)
-
+    possible_words = get_possible_words(sys.argv[1], sys.argv[2], five_letter_words)
     print(possible_words)
      
         
