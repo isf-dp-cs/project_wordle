@@ -19,6 +19,14 @@ print("Welcome to Wordle! \n")
 
 while attempts < max_attempts and not found:
     input_word = input("-- Enter a 5 letter word: ")
+
+    if len(input_word) != 5:
+        raise ValueError("Guess must be 5 letters")
+    
+   
+    for letter in input_word:
+        if letter.isdigit():
+            raise TypeError("No numbers allowed.")
     
     if input_word == solution_word:
         print("\nWell done! You guessed the word!")
@@ -41,6 +49,9 @@ while attempts < max_attempts and not found:
         print(output)
         print()
         attempts += 1
+
+    
+       
 
 if not found:
     print(f"Sorry, you ran out of attempts. The word was: {solution_word}")
